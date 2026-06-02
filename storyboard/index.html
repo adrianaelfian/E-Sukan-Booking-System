@@ -5,71 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Sukan - Storyboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #667eea;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
-        h1 {
+        /* Header */
+        .header {
             text-align: center;
             color: white;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
             margin-bottom: 10px;
         }
         
-        .subtitle {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
+        .header p {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            opacity: 0.9;
         }
         
-        /* This makes the 4 boxes sit side by side */
-        .crud-grid {
+        .badge {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* CRUD Grid - 4 columns */
+        .crud-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
         }
         
+        /* Each card */
         .crud-card {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            width: 220px;
+            border-radius: 20px;
+            padding: 30px 25px;
+            width: 280px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
         
-        .crud-card h2 {
-            font-size: 40px;
-            margin: 0 0 10px 0;
+        .crud-card:hover {
+            transform: translateY(-8px);
         }
         
-        .crud-card h3 {
-            color: #667eea;
-            margin: 10px 0;
+        /* Icon */
+        .crud-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
         }
         
-        .crud-card p {
-            color: #666;
+        /* Title */
+        .crud-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .crud-card:nth-child(1) .crud-title { color: #27ae60; }
+        .crud-card:nth-child(2) .crud-title { color: #3498db; }
+        .crud-card:nth-child(3) .crud-title { color: #f39c12; }
+        .crud-card:nth-child(4) .crud-title { color: #e74c3c; }
+        
+        /* Description text - FIXED WRAPPING */
+        .crud-description {
+            color: #555;
             font-size: 14px;
-            margin: 15px 0;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            min-height: 65px;
+            word-wrap: break-word;
+            white-space: normal;
         }
         
-        .btn {
+        /* Buttons */
+        .crud-btn {
             display: inline-block;
-            padding: 10px 20px;
-            background: #667eea;
+            padding: 12px 24px;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+        
+        .crud-btn:hover {
+            opacity: 0.8;
         }
         
         .btn-create { background: #27ae60; }
@@ -77,11 +124,18 @@
         .btn-update { background: #f39c12; }
         .btn-delete { background: #e74c3c; }
         
+        /* ERD Section */
         .erd-section {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 40px;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .erd-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
         }
         
         table {
@@ -90,15 +144,25 @@
             margin: 20px 0;
         }
         
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        
         th {
             background: #667eea;
             color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .relationship-list {
+            margin: 20px 0 0 25px;
+            line-height: 1.8;
         }
         
         .footer {
@@ -106,59 +170,106 @@
             color: white;
             margin-top: 40px;
             padding: 20px;
+            font-size: 14px;
+            opacity: 0.8;
         }
         
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
             .crud-card {
                 width: 100%;
+                max-width: 320px;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 6px;
+            }
+        }
+        
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .crud-card {
+                width: 230px;
+                padding: 20px 15px;
+            }
+            .crud-title {
+                font-size: 26px;
+            }
+            .crud-description {
+                font-size: 12px;
+            }
+            .crud-btn {
+                padding: 8px 16px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏸 E-Sukan Booking System</h1>
-        <div class="subtitle">Campus Facility & Equipment Booking - Information Management Module</div>
+        <!-- Header -->
+        <div class="header">
+            <h1>🏸 E-Sukan Booking System</h1>
+            <p>Campus Facility & Equipment Booking</p>
+            <p>Information Management Module (CRUD Operations)</p>
+            <div class="badge">📅 Week 9 Submission - Storyboard</div>
+        </div>
         
-        <!-- CRUD Cards - Side by side -->
-        <div class="crud-grid">
+        <!-- CRUD Cards -->
+        <div class="crud-container">
             
             <!-- CREATE Card -->
             <div class="crud-card">
-                <h2>📝</h2>
-                <h3>CREATE</h3>
-                <p>Add new facilities, equipment, or bookings to the system</p>
-                <a href="create-demo.html" class="btn btn-create">View CREATE Demo</a>
+                <div class="crud-icon">📝</div>
+                <div class="crud-title">CREATE</div>
+                <div class="crud-description">
+                    Add new facilities, equipment, or bookings to the system
+                </div>
+                <a href="create-demo.html" class="crud-btn btn-create">View CREATE Demo →</a>
             </div>
             
             <!-- READ Card -->
             <div class="crud-card">
-                <h2>📖</h2>
-                <h3>READ</h3>
-                <p>View and search existing records in the system</p>
-                <a href="read-demo.html" class="btn btn-read">View READ Demo</a>
+                <div class="crud-icon">📖</div>
+                <div class="crud-title">READ</div>
+                <div class="crud-description">
+                    View and search existing records in the system
+                </div>
+                <a href="read-demo.html" class="crud-btn btn-read">View READ Demo →</a>
             </div>
             
             <!-- UPDATE Card -->
             <div class="crud-card">
-                <h2>✏️</h2>
-                <h3>UPDATE</h3>
-                <p>Edit and modify existing facility information</p>
-                <a href="update-demo.html" class="btn btn-update">View UPDATE Demo</a>
+                <div class="crud-icon">✏️</div>
+                <div class="crud-title">UPDATE</div>
+                <div class="crud-description">
+                    Edit and modify existing facility information
+                </div>
+                <a href="update-demo.html" class="crud-btn btn-update">View UPDATE Demo →</a>
             </div>
             
             <!-- DELETE Card -->
             <div class="crud-card">
-                <h2>🗑️</h2>
-                <h3>DELETE</h3>
-                <p>Remove outdated or incorrect records</p>
-                <a href="delete-demo.html" class="btn btn-delete">View DELETE Demo</a>
+                <div class="crud-icon">🗑️</div>
+                <div class="crud-title">DELETE</div>
+                <div class="crud-description">
+                    Remove outdated or incorrect records from the system
+                </div>
+                <a href="delete-demo.html" class="crud-btn btn-delete">View DELETE Demo →</a>
             </div>
         </div>
         
         <!-- Database ERD Section -->
         <div class="erd-section">
             <h2>🗄️ Database ERD (4 Tables)</h2>
+            
             <table>
                 <thead>
                     <tr>
@@ -170,25 +281,25 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>users</td>
+                        <td><strong>users</strong></td>
                         <td>user_id</td>
                         <td>-</td>
                         <td>Student and admin login information</td>
                     </tr>
                     <tr>
-                        <td>facilities</td>
+                        <td><strong>facilities</strong></td>
                         <td>facility_id</td>
                         <td>-</td>
-                        <td>Sports courts (badminton, futsal)</td>
+                        <td>Sports courts (badminton, futsal, basketball)</td>
                     </tr>
                     <tr>
-                        <td>equipment</td>
+                        <td><strong>equipment</strong></td>
                         <td>equipment_id</td>
                         <td>facility_id</td>
                         <td>Sports equipment with status tracking</td>
                     </tr>
                     <tr>
-                        <td>bookings</td>
+                        <td><strong>bookings</strong></td>
                         <td>booking_id</td>
                         <td>user_id, facility_id</td>
                         <td>Time slot bookings by students</td>
@@ -196,17 +307,24 @@
                 </tbody>
             </table>
             
-            <h3>Equipment Status Options:</h3>
-            <ul>
-                <li>✅ Available</li>
-                <li>⚠️ Damaged</li>
-                <li>🔧 In-Maintenance</li>
+            <h3>📊 Equipment Status Options:</h3>
+            <ul class="relationship-list">
+                <li>✅ <strong>Available</strong> - Ready for rental</li>
+                <li>⚠️ <strong>Damaged</strong> - Needs repair, not available</li>
+                <li>🔧 <strong>In-Maintenance</strong> - Currently being serviced</li>
+            </ul>
+            
+            <h3>🔗 Table Relationships:</h3>
+            <ul class="relationship-list">
+                <li>👤 users (1) -----< (N) bookings (One user can make many bookings)</li>
+                <li>🏟️ facilities (1) -----< (N) bookings (One facility can have many bookings)</li>
+                <li>🏸 facilities (1) -----< (N) equipment (One facility can have many equipment)</li>
             </ul>
         </div>
         
         <div class="footer">
             <p>E-Sukan Booking System | Information Management Module (CRUD) | CSC584 Enterprise Programming</p>
-            <p>Week 9 Submission - Storyboard</p>
+            <p>Storyboard - Week 9 Submission</p>
         </div>
     </div>
 </body>
