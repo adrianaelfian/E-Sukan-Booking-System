@@ -12,7 +12,7 @@
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: auto;
             background: white;
             padding: 25px;
@@ -83,40 +83,17 @@
         .btn-update { background: #ff9800; }
         .btn-delete { background: #f44336; }
         
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        
-        th {
-            background: #4CAF50;
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        
-        h2, h3 {
-            color: #333;
-            margin-top: 25px;
-        }
-        
-        ul {
-            margin: 10px 0 10px 25px;
-        }
-        
         hr {
             margin: 30px 0;
             border: none;
             border-top: 1px solid #ddd;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -163,34 +140,9 @@
         
         <hr>
         
-        <h2>🗄️ Database ERD (4 Tables)</h2>
-        
-        <table>
-            <thead>
-                <tr><th>Table Name</th><th>Primary Key</th><th>Foreign Key</th><th>Description</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>users</td><td>user_id</td><td>-</td><td>Student and admin login information</td></tr>
-                <tr><td>facilities</td><td>facility_id</td><td>-</td><td>Sports courts (badminton, futsal, basketball)</td></tr>
-                <tr><td>equipment</td><td>equipment_id</td><td>facility_id</td><td>Sports equipment with status tracking</td></tr>
-                <tr><td>bookings</td><td>booking_id</td><td>user_id, facility_id</td><td>Time slot bookings by students</td></tr>
-            </tbody>
-        </table>
-        
-        <h3>Equipment Status Options:</h3>
-        <ul>
-            <li>Available - Ready for rental</li>
-            <li>Damaged - Needs repair, not available</li>
-            <li>In-Maintenance - Currently being serviced</li>
-        </ul>
-        
-        <h3>Table Relationships:</h3>
-        <ul>
-            <li>users (1) ----- (N) bookings (One user can make many bookings)</li>
-            <li>facilities (1) ----- (N) bookings (One facility can have many bookings)</li>
-            <li>facilities (1) ----- (N) equipment (One facility can have many equipment)</li>
-        </ul>
-        
+        <div class="footer">
+            <p>E-Sukan Booking System | Information Management Module (CRUD) | CSC584 Enterprise Programming</p>
+        </div>
     </div>
 </body>
 </html>
