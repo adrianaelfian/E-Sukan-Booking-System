@@ -2,149 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE - Edit Facility</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
         }
         
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .edit-form {
+            max-width: 500px;
+            margin: auto;
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        h1 {
+            color: #ff9800;
+            text-align: center;
+            margin-top: 0;
         }
         
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
         }
         
-        .form-group input,
-        .form-group select {
+        input, select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
         }
         
-        .btn-update {
-            width: 100%;
-            padding: 12px;
-            background: #f39c12;
+        .readonly-field {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        button {
+            background: #ff9800;
             color: white;
+            padding: 10px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
             cursor: pointer;
+            font-size: 16px;
         }
         
         .btn-back {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
+            color: #666;
             text-decoration: none;
-            color: #f39c12;
         }
         
-        .info-box {
-            background: #fff3cd;
-            color: #856404;
-            padding: 15px;
-            border-radius: 8px;
+        hr {
+            margin: 20px 0;
+        }
+        
+        .info {
+            background: #fff3e0;
+            padding: 10px;
+            border-radius: 5px;
             margin-top: 20px;
+            font-size: 13px;
+            color: #e65100;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>✏️ UPDATE Facility</h1>
-            <p>Edit existing facility information</p>
-        </header>
+        <h1>✏️ Edit Facility</h1>
+        <p>Update the information for an existing facility.</p>
         
-        <div class="edit-form">
-            <form action="#">
-                <div class="form-group">
-                    <label>Facility ID</label>
-                    <input type="text" value="1" readonly style="background:#f5f5f5;">
-                </div>
-                
-                <div class="form-group">
-                    <label>Facility Name *</label>
-                    <input type="text" value="Badminton Court A">
-                </div>
-                
-                <div class="form-group">
-                    <label>Facility Type *</label>
-                    <select>
-                        <option selected>Badminton Court</option>
-                        <option>Futsal Court</option>
-                        <option>Basketball Court</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Location *</label>
-                    <input type="text" value="Sports Complex Level 1">
-                </div>
-                
-                <div class="form-group">
-                    <label>Capacity *</label>
-                    <input type="number" value="4">
-                </div>
-                
-                <div class="form-group">
-                    <label>Status</label>
-                    <select>
-                        <option selected>Available</option>
-                        <option>Under Maintenance</option>
-                        <option>Closed</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn-update">✏️ Update Facility</button>
-            </form>
+        <hr>
+        
+        <form action="#">
+            <label>Facility ID:</label>
+            <input type="text" value="1" readonly class="readonly-field">
             
-            <a href="index.html" class="btn-back">← Back to Storyboard</a>
+            <label>Facility Name:</label>
+            <input type="text" value="Badminton Court A">
             
-            <div class="info-box">
-                💡 <strong>How UPDATE works:</strong><br>
-                1. User clicks Edit button (GET request with ID)<br>
-                2. Servlet retrieves existing data from database<br>
-                3. Form pre-populates with current values<br>
-                4. User submits changes (POST request)<br>
-                5. DAO updates database record
-            </div>
+            <label>Facility Type:</label>
+            <select>
+                <option selected>Badminton Court</option>
+                <option>Futsal Court</option>
+                <option>Basketball Court</option>
+            </select>
+            
+            <label>Location:</label>
+            <input type="text" value="Sports Complex Level 1">
+            
+            <label>Capacity (players):</label>
+            <input type="number" value="4">
+            
+            <label>Status:</label>
+            <select>
+                <option selected>Available</option>
+                <option>Under Maintenance</option>
+                <option>Closed</option>
+            </select>
+            
+            <button type="submit">✏️ Update Facility</button>
+        </form>
+        
+        <a href="index.html" class="btn-back">← Back to Storyboard</a>
+        
+        <div class="info">
+            <strong>How UPDATE works:</strong><br>
+            The form loads existing data, user makes changes, then UpdateFacilityServlet.java saves changes using FacilityDAO.updateFacility().
         </div>
     </div>
 </body>
