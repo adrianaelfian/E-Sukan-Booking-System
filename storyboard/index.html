@@ -6,61 +6,82 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            margin: 20px;
-            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
         }
         
         .container {
             max-width: 1100px;
             margin: auto;
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         h1 {
             color: #333;
             text-align: center;
+            margin-bottom: 5px;
         }
         
         .subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
         
-        /* Simple grid for CRUD boxes */
+        .crud-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
         .crud-box {
-            background: #f9f9f9;
+            background: #fafafa;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             margin: 10px;
-            width: 220px;
+            width: 210px;
             display: inline-block;
             vertical-align: top;
-            text-align: center;
+        }
+        
+        .crud-icon {
+            font-size: 40px;
         }
         
         .crud-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             margin: 10px 0;
+            color: #333;
+        }
+        
+        .crud-desc {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.4;
+            min-height: 50px;
         }
         
         .btn {
             display: inline-block;
             background: #4CAF50;
             color: white;
-            padding: 8px 15px;
+            padding: 8px 16px;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px;
+            font-size: 13px;
         }
         
-        .btn-blue { background: #2196F3; }
-        .btn-orange { background: #ff9800; }
-        .btn-red { background: #f44336; }
+        .btn-read { background: #2196F3; }
+        .btn-update { background: #ff9800; }
+        .btn-delete { background: #f44336; }
         
         table {
             width: 100%;
@@ -70,7 +91,7 @@
         
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: left;
         }
         
@@ -79,102 +100,95 @@
             color: white;
         }
         
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        h2, h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+        
+        ul {
+            margin: 10px 0 10px 25px;
+        }
+        
         hr {
             margin: 30px 0;
+            border: none;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🏸 E-Sukan Booking System</h1>
-        <div class="subtitle">Campus Facility & Equipment Booking</div>
-        <div class="subtitle">Information Management Module (CRUD Operations)</div>
+        <div class="subtitle">Campus Facility & Equipment Booking | Information Management Module (CRUD)</div>
         
-        <hr>
-        
-        <!-- CRUD Section -->
-        <div style="text-align: center;">
+        <div class="crud-section">
             
             <!-- CREATE -->
             <div class="crud-box">
-                <div class="crud-title">📝 CREATE</div>
-                <p>Add new facilities, equipment, or bookings</p>
+                <div class="crud-icon">📝</div>
+                <div class="crud-title">CREATE</div>
+                <div class="crud-desc">Add new facilities, equipment, or bookings</div>
                 <a href="create-demo.html" class="btn">View CREATE</a>
             </div>
             
             <!-- READ -->
             <div class="crud-box">
-                <div class="crud-title">📖 READ</div>
-                <p>View and search existing records</p>
-                <a href="read-demo.html" class="btn btn-blue">View READ</a>
+                <div class="crud-icon">📖</div>
+                <div class="crud-title">READ</div>
+                <div class="crud-desc">View and search existing records</div>
+                <a href="read-demo.html" class="btn btn-read">View READ</a>
             </div>
             
             <!-- UPDATE -->
             <div class="crud-box">
-                <div class="crud-title">✏️ UPDATE</div>
-                <p>Edit and modify facility information</p>
-                <a href="update-demo.html" class="btn btn-orange">View UPDATE</a>
+                <div class="crud-icon">✏️</div>
+                <div class="crud-title">UPDATE</div>
+                <div class="crud-desc">Edit and modify facility information</div>
+                <a href="update-demo.html" class="btn btn-update">View UPDATE</a>
             </div>
             
             <!-- DELETE -->
             <div class="crud-box">
-                <div class="crud-title">🗑️ DELETE</div>
-                <p>Remove outdated or incorrect records</p>
-                <a href="delete-demo.html" class="btn btn-red">View DELETE</a>
+                <div class="crud-icon">🗑️</div>
+                <div class="crud-title">DELETE</div>
+                <div class="crud-desc">Remove outdated or incorrect records</div>
+                <a href="delete-demo.html" class="btn btn-delete">View DELETE</a>
             </div>
             
         </div>
         
         <hr>
         
-        <!-- Database ERD -->
-        <h2>Database ERD (4 Tables)</h2>
+        <h2>🗄️ Database ERD (4 Tables)</h2>
         
         <table>
-            <tr>
-                <th>Table Name</th>
-                <th>Primary Key</th>
-                <th>Foreign Key</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>users</td>
-                <td>user_id</td>
-                <td>-</td>
-                <td>Student and admin login information</td>
-            </tr>
-            <tr>
-                <td>facilities</td>
-                <td>facility_id</td>
-                <td>-</td>
-                <td>Sports courts (badminton, futsal)</td>
-            </tr>
-            <tr>
-                <td>equipment</td>
-                <td>equipment_id</td>
-                <td>facility_id</td>
-                <td>Sports equipment with status tracking</td>
-            </tr>
-            <tr>
-                <td>bookings</td>
-                <td>booking_id</td>
-                <td>user_id, facility_id</td>
-                <td>Time slot bookings by students</td>
-            </tr>
+            <thead>
+                <tr><th>Table Name</th><th>Primary Key</th><th>Foreign Key</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>users</td><td>user_id</td><td>-</td><td>Student and admin login information</td></tr>
+                <tr><td>facilities</td><td>facility_id</td><td>-</td><td>Sports courts (badminton, futsal, basketball)</td></tr>
+                <tr><td>equipment</td><td>equipment_id</td><td>facility_id</td><td>Sports equipment with status tracking</td></tr>
+                <tr><td>bookings</td><td>booking_id</td><td>user_id, facility_id</td><td>Time slot bookings by students</td></tr>
+            </tbody>
         </table>
         
         <h3>Equipment Status Options:</h3>
         <ul>
-            <li>Available</li>
-            <li>Damaged</li>
-            <li>In-Maintenance</li>
+            <li>Available - Ready for rental</li>
+            <li>Damaged - Needs repair, not available</li>
+            <li>In-Maintenance - Currently being serviced</li>
         </ul>
         
         <h3>Table Relationships:</h3>
         <ul>
-            <li>users (1) ---- (N) bookings</li>
-            <li>facilities (1) ---- (N) bookings</li>
-            <li>facilities (1) ---- (N) equipment</li>
+            <li>users (1) ----- (N) bookings (One user can make many bookings)</li>
+            <li>facilities (1) ----- (N) bookings (One facility can have many bookings)</li>
+            <li>facilities (1) ----- (N) equipment (One facility can have many equipment)</li>
         </ul>
         
     </div>
