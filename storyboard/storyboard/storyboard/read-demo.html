@@ -2,167 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>READ - View Facilities</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .search-bar {
+            max-width: 1000px;
+            margin: auto;
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .search-bar input {
+        h1 {
+            color: #2196F3;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .search-box {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .search-box input {
             width: 80%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
         
-        .search-bar button {
-            padding: 10px 20px;
-            background: #3498db;
+        .search-box button {
+            background: #2196F3;
             color: white;
+            padding: 8px 15px;
             border: none;
             border-radius: 5px;
+            cursor: pointer;
         }
         
         table {
             width: 100%;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
         
-        th {
-            background: #3498db;
-            color: white;
-            padding: 15px;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
             text-align: left;
         }
         
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .status-badge {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .status-available {
-            background: #d4edda;
-            color: #155724;
+        th {
+            background: #2196F3;
+            color: white;
         }
         
         .btn-back {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
+            color: #666;
             text-decoration: none;
-            color: #3498db;
         }
         
-        .info-box {
-            background: #cce5ff;
-            color: #004085;
-            padding: 15px;
-            border-radius: 8px;
+        .info {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
             margin-top: 20px;
+            font-size: 13px;
+            color: #1565c0;
         }
+        
+        .edit-link { color: #ff9800; text-decoration: none; margin-right: 10px; }
+        .delete-link { color: #f44336; text-decoration: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>📖 Facility & Equipment List</h1>
-            <p>View all sports facilities and their current status</p>
-        </header>
+        <h1>📖 Facility List</h1>
+        <p>View all sports facilities in the system.</p>
         
-        <div class="search-bar">
-            <input type="text" placeholder="Search by facility name or type...">
+        <div class="search-box">
+            <input type="text" placeholder="Search by facility name...">
             <button>🔍 Search</button>
         </div>
         
-        <h3>🏟️ Sports Facilities</h3>
         <table>
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Facility Name</th>
-                    <th>Type</th>
-                    <th>Location</th>
-                    <th>Capacity</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
+                <tr><th>ID</th><th>Facility Name</th><th>Type</th><th>Location</th><th>Capacity</th><th>Status</th><th>Actions</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Badminton Court A</td>
-                    <td>Badminton</td>
-                    <td>Sports Complex Level 1</td>
-                    <td>4 players</td>
-                    <td><span class="status-badge status-available">Available</span></td>
-                    <td>✏️ 🗑️</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Futsal Court 1</td>
-                    <td>Futsal</td>
-                    <td>Outdoor Field</td>
-                    <td>10 players</td>
-                    <td><span class="status-badge status-available">Available</span></td>
-                    <td>✏️ 🗑️</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Badminton Court B</td>
-                    <td>Badminton</td>
-                    <td>Sports Complex Level 2</td>
-                    <td>4 players</td>
-                    <td><span class="status-badge" style="background:#fff3cd;color:#856404;">Maintenance</span></td>
-                    <td>✏️ 🗑️</td>
-                </tr>
+                <tr><td>1</td><td>Badminton Court A</td><td>Badminton</td><td>Sports Complex Level 1</td><td>4</td><td>Available</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
+                <tr><td>2</td><td>Futsal Court 1</td><td>Futsal</td><td>Outdoor Field</td><td>10</td><td>Available</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
+                <tr><td>3</td><td>Badminton Court B</td><td>Badminton</td><td>Sports Complex Level 2</td><td>4</td><td>Maintenance</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
             </tbody>
         </table>
         
         <a href="index.html" class="btn-back">← Back to Storyboard</a>
         
-        <div class="info-box">
-            💡 <strong>How READ works:</strong><br>
-            1. ViewFacilitiesServlet.java calls FacilityDAO.getAllFacilities()<br>
-            2. Data is stored as a List of Facility objects<br>
-            3. Forwarded to manage-facilities.jsp<br>
-            4. JSP displays data using JSTL tags
+        <div class="info">
+            <strong>How READ works:</strong><br>
+            ViewFacilitiesServlet.java retrieves all facilities from the database using FacilityDAO.getAllFacilities() and displays them in this table.
         </div>
     </div>
 </body>
