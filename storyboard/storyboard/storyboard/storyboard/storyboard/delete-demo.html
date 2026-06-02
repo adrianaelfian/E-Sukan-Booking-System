@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELETE - Remove Facility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .delete-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .warning-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .facility-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .btn-delete {
+            width: 100%;
+            padding: 12px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .btn-cancel {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #666;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #e74c3c;
+        }
+        
+        .info-box {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗑️ DELETE Facility</h1>
+            <p>Remove facility from the system</p>
+        </header>
+        
+        <div class="delete-box">
+            <div class="warning-icon">⚠️</div>
+            <h2>Are you sure?</h2>
+            <p>This action cannot be undone.</p>
+            
+            <div class="facility-info">
+                <strong>Facility to delete:</strong><br>
+                ID: 3<br>
+                Name: Badminton Court B<br>
+                Type: Badminton<br>
+                Location: Sports Complex Level 2
+            </div>
+            
+            <button class="btn-delete">🗑️ Yes, Delete Facility</button>
+            <br>
+            <a href="read-demo.html" class="btn-cancel">Cancel</a>
+            
+            <a href="index.html" class="btn-back">← Back to Storyboard</a>
+            
+            <div class="info-box">
+                💡 <strong>How DELETE works:</strong><br>
+                1. User clicks Delete button<br>
+                2. Confirmation dialog appears<br>
+                3. GET request sent to DeleteServlet with ID<br>
+                4. DAO executes DELETE FROM facilities WHERE id=?<br>
+                5. User redirected to updated facility list
+            </div>
+        </div>
+    </div>
+</body>
+</html>
