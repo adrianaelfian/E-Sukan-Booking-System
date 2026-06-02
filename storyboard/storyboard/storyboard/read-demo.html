@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>READ - View Facilities</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2196F3;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .search-box {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .search-box input {
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .search-box button {
+            background: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            margin-top: 15px;
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #1565c0;
+        }
+        
+        .edit-link { color: #ff9800; text-decoration: none; margin-right: 10px; }
+        .delete-link { color: #f44336; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Facility List</h1>
+        <p>View all sports facilities in the system.</p>
+        
+        <div class="search-box">
+            <input type="text" placeholder="Search by facility name...">
+            <button>🔍 Search</button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Facility Name</th><th>Type</th><th>Location</th><th>Capacity</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Badminton Court A</td><td>Badminton</td><td>Sports Complex Level 1</td><td>4</td><td>Available</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
+                <tr><td>2</td><td>Futsal Court 1</td><td>Futsal</td><td>Outdoor Field</td><td>10</td><td>Available</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
+                <tr><td>3</td><td>Badminton Court B</td><td>Badminton</td><td>Sports Complex Level 2</td><td>4</td><td>Maintenance</td><td><a href="#" class="edit-link">Edit</a> <a href="#" class="delete-link">Delete</a></td></tr>
+            </tbody>
+        </table>
+        
+        <a href="index.html" class="btn-back">← Back to Storyboard</a>
+        
+        <div class="info">
+            <strong>How READ works:</strong><br>
+            ViewFacilitiesServlet.java retrieves all facilities from the database using FacilityDAO.getAllFacilities() and displays them in this table.
+        </div>
+    </div>
+</body>
+</html>
