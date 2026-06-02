@@ -12,7 +12,7 @@
         }
         
         .container {
-            max-width: 600px;
+            max-width: 1000px;
             margin: auto;
             background: white;
             padding: 25px;
@@ -34,7 +34,6 @@
             border-bottom: 1px solid #ddd;
         }
         
-        /* 2x2 Grid Layout */
         .crud-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -81,6 +80,42 @@
         .btn-read { background: #2196F3; }
         .btn-update { background: #ff9800; }
         .btn-delete { background: #f44336; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        h2, h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+        
+        ul {
+            margin: 10px 0 10px 25px;
+        }
+        
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
@@ -88,10 +123,9 @@
         <h1>🏸 E-Sukan Booking System</h1>
         <div class="subtitle">Campus Facility & Equipment Booking | Information Management Module (CRUD)</div>
         
-        <!-- 2x2 Grid: CREATE & READ on TOP, UPDATE & DELETE on BOTTOM -->
+        <!-- CRUD 2x2 Grid -->
         <div class="crud-grid">
             
-            <!-- CREATE - TOP LEFT -->
             <div class="crud-box">
                 <div class="crud-icon">📝</div>
                 <div class="crud-title">CREATE</div>
@@ -99,7 +133,6 @@
                 <a href="create-demo.html" class="btn">View CREATE</a>
             </div>
             
-            <!-- READ - TOP RIGHT -->
             <div class="crud-box">
                 <div class="crud-icon">📖</div>
                 <div class="crud-title">READ</div>
@@ -107,7 +140,6 @@
                 <a href="read-demo.html" class="btn btn-read">View READ</a>
             </div>
             
-            <!-- UPDATE - BOTTOM LEFT -->
             <div class="crud-box">
                 <div class="crud-icon">✏️</div>
                 <div class="crud-title">UPDATE</div>
@@ -115,7 +147,6 @@
                 <a href="update-demo.html" class="btn btn-update">View UPDATE</a>
             </div>
             
-            <!-- DELETE - BOTTOM RIGHT -->
             <div class="crud-box">
                 <div class="crud-icon">🗑️</div>
                 <div class="crud-title">DELETE</div>
@@ -125,7 +156,61 @@
             
         </div>
         
-        <!-- NO FOOTER TEXT HERE - REMOVED -->
+        <hr>
+        
+        <!-- Database ERD Section -->
+        <h2>🗄️ Database ERD (4 Tables)</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Table Name</th>
+                    <th>Primary Key</th>
+                    <th>Foreign Key</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>users</strong></td>
+                    <td>user_id</td>
+                    <td>-</td>
+                    <td>Student and admin login information</td>
+                </tr>
+                <tr>
+                    <td><strong>facilities</strong></td>
+                    <td>facility_id</td>
+                    <td>-</td>
+                    <td>Sports courts (badminton, futsal, basketball)</td>
+                </tr>
+                <tr>
+                    <td><strong>equipment</strong></td>
+                    <td>equipment_id</td>
+                    <td>facility_id</td>
+                    <td>Sports equipment with status tracking</td>
+                </tr>
+                <tr>
+                    <td><strong>bookings</strong></td>
+                    <td>booking_id</td>
+                    <td>user_id, facility_id</td>
+                    <td>Time slot bookings by students</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>📊 Equipment Status Options:</h3>
+        <ul>
+            <li>✅ Available - Ready for rental</li>
+            <li>⚠️ Damaged - Needs repair, not available</li>
+            <li>🔧 In-Maintenance - Currently being serviced</li>
+        </ul>
+        
+        <h3>🔗 Table Relationships:</h3>
+        <ul>
+            <li>👤 users (1) ----- (N) bookings (One user can make many bookings)</li>
+            <li>🏟️ facilities (1) ----- (N) bookings (One facility can have many bookings)</li>
+            <li>🏸 facilities (1) ----- (N) equipment (One facility can have many equipment)</li>
+        </ul>
         
     </div>
 </body>
