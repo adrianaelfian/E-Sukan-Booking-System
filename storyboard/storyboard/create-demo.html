@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE - Add New Facility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .create-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #27ae60;
+        }
+        
+        .info-box {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 CREATE New Facility</h1>
+            <p>Add a new sports facility to the system</p>
+        </header>
+        
+        <div class="create-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>Facility Name *</label>
+                    <input type="text" placeholder="e.g., Badminton Court A">
+                </div>
+                
+                <div class="form-group">
+                    <label>Facility Type *</label>
+                    <select>
+                        <option>Select Type</option>
+                        <option>Badminton Court</option>
+                        <option>Futsal Court</option>
+                        <option>Basketball Court</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Location *</label>
+                    <input type="text" placeholder="e.g., Sports Complex, Level 2">
+                </div>
+                
+                <div class="form-group">
+                    <label>Capacity *</label>
+                    <input type="number" placeholder="Max number of players">
+                </div>
+                
+                <div class="form-group">
+                    <label>Status</label>
+                    <select>
+                        <option>Available</option>
+                        <option>Under Maintenance</option>
+                        <option>Closed</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="3" placeholder="Additional information about facility"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">✅ Add Facility</button>
+            </form>
+            
+            <a href="index.html" class="btn-back">← Back to Storyboard</a>
+            
+            <div class="info-box">
+                💡 <strong>How CREATE works:</strong><br>
+                1. Form data is sent to CreateFacilityServlet.java<br>
+                2. Servlet creates Facility object (Model)<br>
+                3. FacilityDAO adds record to database<br>
+                4. User is redirected to view all facilities
+            </div>
+        </div>
+    </div>
+</body>
+</html>
